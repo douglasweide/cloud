@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresso</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #btnNao {
+            position: absolute;
+        }
+    </style>
+    <script>
+        function confirmarAcompanhante() {
+            alert("ACOMPANHANTE CONFIRMADO");
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        }
+        function moverBotaoNao() {
+            const btnNao = document.getElementById("btnNao");
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            btnNao.style.left = `${x}px`;
+            btnNao.style.top = `${y}px`;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-half">
+                <figure class="image is128x128">
+                    <img src="./j2m.png" alt="jem">
+                </figure>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table class="table is-bordered is-narrow is-hoverable is-fullwidth" style="background-color: #257acf;">
+                <thead>
+                    <tr>
+                        <th>INCLUSO: </th>
+                        <th>LOCAL</th>
+                        <th>ACOMPANHANTE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2 ingressos Premium Open Bar</td>
+                        <td>Curitiba - PR</td>
+                        <td>Douglas Weide</td>
+                    </tr>
+                    <tr>
+                        <td>2 Passagens Aéreas</td>
+                    </tr>
+                    <tr>
+                        <td>Diárias para 2 pessoas em Curitiba (local a definir. Tem Cabaninha será?)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="button-container">
+        <p>Deseja alterar o seu acompanhante? Alteração passível a uma briga</p>
+        <button class="button is-success" onclick="confirmarAcompanhante()">SIM</button>
+        <button id="btnNao" class="button is-danger" onclick="moverBotaoNao()">NÃO</button>
+    </div>
+</div>
+</body>
+</html>

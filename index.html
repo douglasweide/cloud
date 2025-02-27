@@ -1,1 +1,98 @@
-teste
+<html>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+    <body>
+        <section class="section">
+            <div class="container">
+                <div class="columns is-vcentered is-centered">
+                    <!-- Text Column -->
+                    <div class="column is-narrow">
+                        <h1 class="title">Feliz Aniversário</h1>
+                    </div>
+                    <!-- Image Column -->
+                    <div class="column is-narrow">
+                        <figure class="image is-128x128">
+                            <img src="./2256825_bcb0d.gif" alt="little bee Image">
+                        </figure>
+                    </div>
+                </div>
+                <div class="columns is-vcentered is-centered">
+                    <figure class="image is-500x500">
+                        <img src="./bee-ia.webp" alt="Bee Image">
+                    </figure>
+                </div>
+
+                <div class="columns is-vcentered is-centered">
+                    <figure class="image is-500x500">
+                        <img src="./cloud.webp" alt="Cloud Mine">
+                    </figure>
+                </div>
+
+                <div class="columns is-vcentered is-centered">
+                    <figure class="image is-500x500">
+                        <img src="./bee1.gif" alt="bee gift">
+                    </figure>
+                </div>
+                
+                <!-- Gifts Section -->
+                <div class="section has-text-centered">
+                    <div class="buttons is-centered">
+                        <button class="button is-primary" onclick="toggleGift('gift1')">Presente 1</button>
+                        <button class="button is-link" onclick="toggleGift('gift2')">Presente 2</button>
+                    </div>
+
+                    <div id="gift1" class="box has-text-centered is-hidden">
+                        <p id="gift1-text">🎁 Preparada? Vai clicando no botão de próximo</p><br>
+                        <button class="button is-small is-info" onclick="nextInfo('gift1-text', 
+                        ['🎁 O primeiro presente tu não vai saber agora. Coloquei aqui literalmente para te deixar curiosa, já que tu gosta de jogar esse tipo de jogo :D', 
+                        '🎁 Mas tenta usar a imaginação, é algo decorativo/colecionável que tu curte desde criança', 
+                        '🎁 Vou te entregar pessoalmente, então aproveita pra ir pensando até lá',
+                        '🎁 Só vai receber se acertar o que é, boa sorte!',
+                        '🎁 Fim. Agora tu pode clicar no Presente de número 2'])">Próximo</button>
+                    </div>
+                    <div id="gift2" class="box has-text-centered is-hidden">
+                        <p id="gift2-text">🎉 Esse é o Segundo Presente</p><br>
+                        <button class="button is-small is-info" onclick="nextInfoRedirect('gift2-text', 
+                        ['🎉 Esse presente aqui não foi fácil de conseguir',
+                        '🎉 Provavelmente tu vai me dever a tua alma por conta dele',
+                        '🎉 Então, algo que traçamos como meta seria uma viagem para fora do estado, certo?',
+                        '🎉 Confesso que eu não havia planejado para esse ano, mas devido à EXTREMA complexidade de conseguir esse teu presente, a viagem se tornou um requisito',
+                        '🎉 Sem mais enrolação, a viagem em si não é o presente, é só o meio necessário para chegar até ele',
+                        '🎉 Interessante né, pois uma coisa vai levar a outra',
+                        '🎉 O presente é um ingresso para um show',
+                        '🎉 Algo que na real eu nem curto, mas agora tu tem a OBRIGAÇÃO de me fazer curtir até outubro',
+                        '🎉 A verdade é que independente de eu curtir ou não o som meia boca dos caras, só o fato de estar contigo',
+                        '🎉 viajando e concluindo um dos nossos primeiros planos que traçamos enquanto parceiros',
+                        '🎉 já me faz não ter dúvidas que vai ser um role do caralho',
+                        '🎉 Dito isso espero que goste:'], 'ingresso.html')">Próximo</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            function toggleGift(giftId) {
+                const gift = document.getElementById(giftId);
+                gift.classList.toggle('is-hidden');
+            }
+
+            function nextInfo(elementId, texts) {
+                const element = document.getElementById(elementId);
+                let currentIndex = texts.indexOf(element.innerText);
+                let nextIndex = (currentIndex + 1) % texts.length;
+                element.innerText = texts[nextIndex];
+            }
+
+            function nextInfoRedirect(elementId, texts, url) {
+                const element = document.getElementById(elementId);
+                let currentIndex = texts.indexOf(element.innerText);
+                let nextIndex = currentIndex + 1;
+                
+                if (nextIndex < texts.length) {
+                    element.innerText = texts[nextIndex];
+                } else {
+                    window.location.href = url;
+                }
+            }
+        </script>
+    </body>
+</html>
